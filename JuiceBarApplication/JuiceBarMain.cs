@@ -26,5 +26,11 @@ namespace JuiceBarApplication
         {
             this.Close();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JuiceBarAboutBox about = new JuiceBarAboutBox();
+            about.Show();
+        }
     }
 }

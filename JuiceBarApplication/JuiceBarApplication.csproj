@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JuiceBarAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JuiceBarAboutBox.Designer.cs">
+      <DependentUpon>JuiceBarAboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="JuiceBarMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="JuiceBarAboutBox.resx">
+      <DependentUpon>JuiceBarAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JuiceBarMain.resx">
       <DependentUpon>JuiceBarMain.cs</DependentUpon>
     </EmbeddedResource>
