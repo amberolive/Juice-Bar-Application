@@ -31,7 +31,7 @@
             this.lblJuiceBarMenu = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.previewOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderSumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,17 +41,15 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbJuice = new System.Windows.Forms.GroupBox();
-            this.gbSizeJuice = new System.Windows.Forms.GroupBox();
-            this.rbTwentyJuice = new System.Windows.Forms.RadioButton();
-            this.rbSixteenJuice = new System.Windows.Forms.RadioButton();
-            this.rbTwelveJuice = new System.Windows.Forms.RadioButton();
             this.rbFruit = new System.Windows.Forms.RadioButton();
             this.rbVeggie = new System.Windows.Forms.RadioButton();
+            this.lbQuantity = new System.Windows.Forms.Label();
+            this.tbQuantity = new System.Windows.Forms.TextBox();
+            this.gbSize = new System.Windows.Forms.GroupBox();
+            this.rbTwentyOunce = new System.Windows.Forms.RadioButton();
+            this.rbSixteenOunce = new System.Windows.Forms.RadioButton();
+            this.rbTwelveOunce = new System.Windows.Forms.RadioButton();
             this.gbSmoothies = new System.Windows.Forms.GroupBox();
-            this.gbSizeSmoothies = new System.Windows.Forms.GroupBox();
-            this.rbTwentySmooth = new System.Windows.Forms.RadioButton();
-            this.rbSixteenSmooth = new System.Windows.Forms.RadioButton();
-            this.rbTwelveSmooth = new System.Windows.Forms.RadioButton();
             this.rbWheatBerry = new System.Windows.Forms.RadioButton();
             this.rbStrawBanana = new System.Windows.Forms.RadioButton();
             this.rbPom = new System.Windows.Forms.RadioButton();
@@ -61,13 +59,19 @@
             this.cbCDRem = new System.Windows.Forms.CheckBox();
             this.btAdd = new System.Windows.Forms.Button();
             this.btCheckout = new System.Windows.Forms.Button();
-            this.btPreview = new System.Windows.Forms.Button();
+            this.btViewOrderSum = new System.Windows.Forms.Button();
             this.btExit = new System.Windows.Forms.Button();
+            this.btClear = new System.Windows.Forms.Button();
+            this.rbJuice = new System.Windows.Forms.RadioButton();
+            this.rbSmoothie = new System.Windows.Forms.RadioButton();
+            this.gbDrinkChoice = new System.Windows.Forms.GroupBox();
+            this.fontDialogMain = new System.Windows.Forms.FontDialog();
+            this.colorDialogMain = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             this.gbJuice.SuspendLayout();
-            this.gbSizeJuice.SuspendLayout();
+            this.gbSize.SuspendLayout();
             this.gbSmoothies.SuspendLayout();
-            this.gbSizeSmoothies.SuspendLayout();
+            this.gbDrinkChoice.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblJuiceBarMenu
@@ -96,22 +100,23 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.previewOrderToolStripMenuItem,
+            this.orderSumToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // previewOrderToolStripMenuItem
+            // orderSumToolStripMenuItem
             // 
-            this.previewOrderToolStripMenuItem.Name = "previewOrderToolStripMenuItem";
-            this.previewOrderToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
-            this.previewOrderToolStripMenuItem.Text = "Preview Order";
+            this.orderSumToolStripMenuItem.Name = "orderSumToolStripMenuItem";
+            this.orderSumToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.orderSumToolStripMenuItem.Text = "Order Summary";
+            this.orderSumToolStripMenuItem.Click += new System.EventHandler(this.orderSumToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -129,26 +134,30 @@
             // addToOrderToolStripMenuItem
             // 
             this.addToOrderToolStripMenuItem.Name = "addToOrderToolStripMenuItem";
-            this.addToOrderToolStripMenuItem.Size = new System.Drawing.Size(204, 30);
+            this.addToOrderToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.addToOrderToolStripMenuItem.Text = "Add to Order";
+            this.addToOrderToolStripMenuItem.Click += new System.EventHandler(this.addToOrderToolStripMenuItem_Click);
             // 
             // checkoutToolStripMenuItem
             // 
             this.checkoutToolStripMenuItem.Name = "checkoutToolStripMenuItem";
-            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(204, 30);
+            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.checkoutToolStripMenuItem.Text = "Checkout";
+            this.checkoutToolStripMenuItem.Click += new System.EventHandler(this.checkoutToolStripMenuItem_Click);
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(204, 30);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // colorToolStripMenuItem
             // 
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(204, 30);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.colorToolStripMenuItem.Text = "Color";
+            this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -167,142 +176,112 @@
             // 
             // gbJuice
             // 
-            this.gbJuice.Controls.Add(this.gbSizeJuice);
             this.gbJuice.Controls.Add(this.rbFruit);
             this.gbJuice.Controls.Add(this.rbVeggie);
             this.gbJuice.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbJuice.Location = new System.Drawing.Point(24, 129);
+            this.gbJuice.Location = new System.Drawing.Point(12, 156);
             this.gbJuice.Name = "gbJuice";
-            this.gbJuice.Size = new System.Drawing.Size(214, 405);
+            this.gbJuice.Size = new System.Drawing.Size(214, 144);
             this.gbJuice.TabIndex = 2;
             this.gbJuice.TabStop = false;
-            this.gbJuice.Text = "Juice";
-            // 
-            // gbSizeJuice
-            // 
-            this.gbSizeJuice.Controls.Add(this.rbTwentyJuice);
-            this.gbSizeJuice.Controls.Add(this.rbSixteenJuice);
-            this.gbSizeJuice.Controls.Add(this.rbTwelveJuice);
-            this.gbSizeJuice.Location = new System.Drawing.Point(0, 182);
-            this.gbSizeJuice.Name = "gbSizeJuice";
-            this.gbSizeJuice.Size = new System.Drawing.Size(214, 220);
-            this.gbSizeJuice.TabIndex = 2;
-            this.gbSizeJuice.TabStop = false;
-            this.gbSizeJuice.Text = "Size";
-            // 
-            // rbTwentyJuice
-            // 
-            this.rbTwentyJuice.AutoSize = true;
-            this.rbTwentyJuice.Location = new System.Drawing.Point(26, 168);
-            this.rbTwentyJuice.Name = "rbTwentyJuice";
-            this.rbTwentyJuice.Size = new System.Drawing.Size(179, 32);
-            this.rbTwentyJuice.TabIndex = 2;
-            this.rbTwentyJuice.TabStop = true;
-            this.rbTwentyJuice.Text = "20 oz.  -  $4.00";
-            this.rbTwentyJuice.UseVisualStyleBackColor = true;
-            // 
-            // rbSixteenJuice
-            // 
-            this.rbSixteenJuice.AutoSize = true;
-            this.rbSixteenJuice.Location = new System.Drawing.Point(26, 109);
-            this.rbSixteenJuice.Name = "rbSixteenJuice";
-            this.rbSixteenJuice.Size = new System.Drawing.Size(176, 32);
-            this.rbSixteenJuice.TabIndex = 1;
-            this.rbSixteenJuice.TabStop = true;
-            this.rbSixteenJuice.Text = "16 oz.  -  $3.50";
-            this.rbSixteenJuice.UseVisualStyleBackColor = true;
-            // 
-            // rbTwelveJuice
-            // 
-            this.rbTwelveJuice.AutoSize = true;
-            this.rbTwelveJuice.Location = new System.Drawing.Point(26, 53);
-            this.rbTwelveJuice.Name = "rbTwelveJuice";
-            this.rbTwelveJuice.Size = new System.Drawing.Size(176, 32);
-            this.rbTwelveJuice.TabIndex = 0;
-            this.rbTwelveJuice.TabStop = true;
-            this.rbTwelveJuice.Text = "12 oz.  -  $3.00";
-            this.rbTwelveJuice.UseVisualStyleBackColor = true;
             // 
             // rbFruit
             // 
             this.rbFruit.AutoSize = true;
-            this.rbFruit.Location = new System.Drawing.Point(26, 103);
+            this.rbFruit.Location = new System.Drawing.Point(26, 48);
             this.rbFruit.Name = "rbFruit";
             this.rbFruit.Size = new System.Drawing.Size(83, 32);
-            this.rbFruit.TabIndex = 1;
+            this.rbFruit.TabIndex = 4;
+            this.rbFruit.TabStop = true;
             this.rbFruit.Text = "Fruit";
             this.rbFruit.UseVisualStyleBackColor = true;
             // 
             // rbVeggie
             // 
             this.rbVeggie.AutoSize = true;
-            this.rbVeggie.Checked = true;
-            this.rbVeggie.Location = new System.Drawing.Point(26, 51);
+            this.rbVeggie.Location = new System.Drawing.Point(26, 100);
             this.rbVeggie.Name = "rbVeggie";
             this.rbVeggie.Size = new System.Drawing.Size(100, 32);
-            this.rbVeggie.TabIndex = 0;
+            this.rbVeggie.TabIndex = 3;
             this.rbVeggie.TabStop = true;
             this.rbVeggie.Text = "Veggie";
             this.rbVeggie.UseVisualStyleBackColor = true;
             // 
+            // lbQuantity
+            // 
+            this.lbQuantity.AutoSize = true;
+            this.lbQuantity.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQuantity.Location = new System.Drawing.Point(258, 418);
+            this.lbQuantity.Name = "lbQuantity";
+            this.lbQuantity.Size = new System.Drawing.Size(98, 28);
+            this.lbQuantity.TabIndex = 6;
+            this.lbQuantity.Text = "Quantity:";
+            // 
+            // tbQuantity
+            // 
+            this.tbQuantity.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuantity.Location = new System.Drawing.Point(281, 449);
+            this.tbQuantity.Name = "tbQuantity";
+            this.tbQuantity.Size = new System.Drawing.Size(100, 33);
+            this.tbQuantity.TabIndex = 5;
+            // 
+            // gbSize
+            // 
+            this.gbSize.Controls.Add(this.rbTwentyOunce);
+            this.gbSize.Controls.Add(this.rbSixteenOunce);
+            this.gbSize.Controls.Add(this.rbTwelveOunce);
+            this.gbSize.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSize.Location = new System.Drawing.Point(12, 418);
+            this.gbSize.Name = "gbSize";
+            this.gbSize.Size = new System.Drawing.Size(214, 220);
+            this.gbSize.TabIndex = 2;
+            this.gbSize.TabStop = false;
+            this.gbSize.Text = "Size";
+            // 
+            // rbTwentyOunce
+            // 
+            this.rbTwentyOunce.AutoSize = true;
+            this.rbTwentyOunce.Location = new System.Drawing.Point(26, 168);
+            this.rbTwentyOunce.Name = "rbTwentyOunce";
+            this.rbTwentyOunce.Size = new System.Drawing.Size(179, 32);
+            this.rbTwentyOunce.TabIndex = 2;
+            this.rbTwentyOunce.TabStop = true;
+            this.rbTwentyOunce.Text = "20 oz.  -  $4.00";
+            this.rbTwentyOunce.UseVisualStyleBackColor = true;
+            // 
+            // rbSixteenOunce
+            // 
+            this.rbSixteenOunce.AutoSize = true;
+            this.rbSixteenOunce.Location = new System.Drawing.Point(26, 109);
+            this.rbSixteenOunce.Name = "rbSixteenOunce";
+            this.rbSixteenOunce.Size = new System.Drawing.Size(176, 32);
+            this.rbSixteenOunce.TabIndex = 1;
+            this.rbSixteenOunce.TabStop = true;
+            this.rbSixteenOunce.Text = "16 oz.  -  $3.50";
+            this.rbSixteenOunce.UseVisualStyleBackColor = true;
+            // 
+            // rbTwelveOunce
+            // 
+            this.rbTwelveOunce.AutoSize = true;
+            this.rbTwelveOunce.Location = new System.Drawing.Point(26, 53);
+            this.rbTwelveOunce.Name = "rbTwelveOunce";
+            this.rbTwelveOunce.Size = new System.Drawing.Size(176, 32);
+            this.rbTwelveOunce.TabIndex = 11;
+            this.rbTwelveOunce.TabStop = true;
+            this.rbTwelveOunce.Text = "12 oz.  -  $3.00";
+            this.rbTwelveOunce.UseVisualStyleBackColor = true;
+            // 
             // gbSmoothies
             // 
-            this.gbSmoothies.Controls.Add(this.gbSizeSmoothies);
             this.gbSmoothies.Controls.Add(this.rbWheatBerry);
             this.gbSmoothies.Controls.Add(this.rbStrawBanana);
             this.gbSmoothies.Controls.Add(this.rbPom);
             this.gbSmoothies.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbSmoothies.Location = new System.Drawing.Point(857, 126);
+            this.gbSmoothies.Location = new System.Drawing.Point(263, 156);
             this.gbSmoothies.Name = "gbSmoothies";
-            this.gbSmoothies.Size = new System.Drawing.Size(256, 405);
+            this.gbSmoothies.Size = new System.Drawing.Size(256, 213);
             this.gbSmoothies.TabIndex = 3;
             this.gbSmoothies.TabStop = false;
-            this.gbSmoothies.Text = "Smoothies";
-            // 
-            // gbSizeSmoothies
-            // 
-            this.gbSizeSmoothies.Controls.Add(this.rbTwentySmooth);
-            this.gbSizeSmoothies.Controls.Add(this.rbSixteenSmooth);
-            this.gbSizeSmoothies.Controls.Add(this.rbTwelveSmooth);
-            this.gbSizeSmoothies.Location = new System.Drawing.Point(0, 189);
-            this.gbSizeSmoothies.Name = "gbSizeSmoothies";
-            this.gbSizeSmoothies.Size = new System.Drawing.Size(256, 213);
-            this.gbSizeSmoothies.TabIndex = 3;
-            this.gbSizeSmoothies.TabStop = false;
-            this.gbSizeSmoothies.Text = "Size";
-            // 
-            // rbTwentySmooth
-            // 
-            this.rbTwentySmooth.AutoSize = true;
-            this.rbTwentySmooth.Location = new System.Drawing.Point(24, 161);
-            this.rbTwentySmooth.Name = "rbTwentySmooth";
-            this.rbTwentySmooth.Size = new System.Drawing.Size(179, 32);
-            this.rbTwentySmooth.TabIndex = 2;
-            this.rbTwentySmooth.TabStop = true;
-            this.rbTwentySmooth.Text = "20 oz.  -  $4.00";
-            this.rbTwentySmooth.UseVisualStyleBackColor = true;
-            // 
-            // rbSixteenSmooth
-            // 
-            this.rbSixteenSmooth.AutoSize = true;
-            this.rbSixteenSmooth.Location = new System.Drawing.Point(24, 102);
-            this.rbSixteenSmooth.Name = "rbSixteenSmooth";
-            this.rbSixteenSmooth.Size = new System.Drawing.Size(176, 32);
-            this.rbSixteenSmooth.TabIndex = 1;
-            this.rbSixteenSmooth.TabStop = true;
-            this.rbSixteenSmooth.Text = "16 oz.  -  $3.50";
-            this.rbSixteenSmooth.UseVisualStyleBackColor = true;
-            // 
-            // rbTwelveSmooth
-            // 
-            this.rbTwelveSmooth.AutoSize = true;
-            this.rbTwelveSmooth.Location = new System.Drawing.Point(24, 46);
-            this.rbTwelveSmooth.Name = "rbTwelveSmooth";
-            this.rbTwelveSmooth.Size = new System.Drawing.Size(176, 32);
-            this.rbTwelveSmooth.TabIndex = 0;
-            this.rbTwelveSmooth.TabStop = true;
-            this.rbTwelveSmooth.Text = "12 oz.  -  $3.00";
-            this.rbTwelveSmooth.UseVisualStyleBackColor = true;
             // 
             // rbWheatBerry
             // 
@@ -341,7 +320,7 @@
             // 
             this.lbAdditives.AutoSize = true;
             this.lbAdditives.Font = new System.Drawing.Font("Comic Sans MS", 12F);
-            this.lbAdditives.Location = new System.Drawing.Point(490, 129);
+            this.lbAdditives.Location = new System.Drawing.Point(624, 127);
             this.lbAdditives.Name = "lbAdditives";
             this.lbAdditives.Size = new System.Drawing.Size(139, 66);
             this.lbAdditives.TabIndex = 4;
@@ -351,7 +330,7 @@
             // 
             this.cbVitaPack.AutoSize = true;
             this.cbVitaPack.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbVitaPack.Location = new System.Drawing.Point(478, 229);
+            this.cbVitaPack.Location = new System.Drawing.Point(630, 227);
             this.cbVitaPack.Name = "cbVitaPack";
             this.cbVitaPack.Size = new System.Drawing.Size(122, 32);
             this.cbVitaPack.TabIndex = 5;
@@ -362,7 +341,7 @@
             // 
             this.cbEngBoost.AutoSize = true;
             this.cbEngBoost.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.cbEngBoost.Location = new System.Drawing.Point(478, 291);
+            this.cbEngBoost.Location = new System.Drawing.Point(630, 289);
             this.cbEngBoost.Name = "cbEngBoost";
             this.cbEngBoost.Size = new System.Drawing.Size(161, 32);
             this.cbEngBoost.TabIndex = 6;
@@ -373,7 +352,7 @@
             // 
             this.cbCDRem.AutoSize = true;
             this.cbCDRem.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.cbCDRem.Location = new System.Drawing.Point(478, 361);
+            this.cbCDRem.Location = new System.Drawing.Point(630, 359);
             this.cbCDRem.Name = "cbCDRem";
             this.cbCDRem.Size = new System.Drawing.Size(210, 32);
             this.cbCDRem.TabIndex = 7;
@@ -383,37 +362,40 @@
             // btAdd
             // 
             this.btAdd.Font = new System.Drawing.Font("Comic Sans MS", 9F);
-            this.btAdd.Location = new System.Drawing.Point(289, 471);
+            this.btAdd.Location = new System.Drawing.Point(914, 97);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(154, 57);
-            this.btAdd.TabIndex = 8;
+            this.btAdd.TabIndex = 0;
             this.btAdd.Text = "Add to Order";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // btCheckout
             // 
             this.btCheckout.Font = new System.Drawing.Font("Comic Sans MS", 9F);
-            this.btCheckout.Location = new System.Drawing.Point(485, 471);
+            this.btCheckout.Location = new System.Drawing.Point(914, 202);
             this.btCheckout.Name = "btCheckout";
             this.btCheckout.Size = new System.Drawing.Size(154, 57);
             this.btCheckout.TabIndex = 9;
             this.btCheckout.Text = "Checkout";
             this.btCheckout.UseVisualStyleBackColor = true;
+            this.btCheckout.Click += new System.EventHandler(this.btCheckout_Click);
             // 
-            // btPreview
+            // btViewOrderSum
             // 
-            this.btPreview.Font = new System.Drawing.Font("Comic Sans MS", 9F);
-            this.btPreview.Location = new System.Drawing.Point(678, 471);
-            this.btPreview.Name = "btPreview";
-            this.btPreview.Size = new System.Drawing.Size(154, 57);
-            this.btPreview.TabIndex = 10;
-            this.btPreview.Text = "Preview Order";
-            this.btPreview.UseVisualStyleBackColor = true;
+            this.btViewOrderSum.Font = new System.Drawing.Font("Comic Sans MS", 9F);
+            this.btViewOrderSum.Location = new System.Drawing.Point(914, 290);
+            this.btViewOrderSum.Name = "btViewOrderSum";
+            this.btViewOrderSum.Size = new System.Drawing.Size(154, 79);
+            this.btViewOrderSum.TabIndex = 10;
+            this.btViewOrderSum.Text = "View Orders Summary";
+            this.btViewOrderSum.UseVisualStyleBackColor = true;
+            this.btViewOrderSum.Click += new System.EventHandler(this.btViewOrderSum_Click);
             // 
             // btExit
             // 
             this.btExit.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btExit.Location = new System.Drawing.Point(485, 567);
+            this.btExit.Location = new System.Drawing.Point(914, 524);
             this.btExit.Name = "btExit";
             this.btExit.Size = new System.Drawing.Size(154, 57);
             this.btExit.TabIndex = 11;
@@ -421,13 +403,64 @@
             this.btExit.UseVisualStyleBackColor = true;
             this.btExit.Click += new System.EventHandler(this.btExit_Click);
             // 
+            // btClear
+            // 
+            this.btClear.Font = new System.Drawing.Font("Comic Sans MS", 9F);
+            this.btClear.Location = new System.Drawing.Point(914, 418);
+            this.btClear.Name = "btClear";
+            this.btClear.Size = new System.Drawing.Size(154, 57);
+            this.btClear.TabIndex = 12;
+            this.btClear.Text = "Clear";
+            this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
+            // 
+            // rbJuice
+            // 
+            this.rbJuice.AutoSize = true;
+            this.rbJuice.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.rbJuice.Location = new System.Drawing.Point(26, 17);
+            this.rbJuice.Name = "rbJuice";
+            this.rbJuice.Size = new System.Drawing.Size(87, 32);
+            this.rbJuice.TabIndex = 13;
+            this.rbJuice.TabStop = true;
+            this.rbJuice.Text = "Juice";
+            this.rbJuice.UseVisualStyleBackColor = true;
+            this.rbJuice.CheckedChanged += new System.EventHandler(this.rbJuice_CheckedChanged);
+            // 
+            // rbSmoothie
+            // 
+            this.rbSmoothie.AutoSize = true;
+            this.rbSmoothie.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSmoothie.Location = new System.Drawing.Point(269, 17);
+            this.rbSmoothie.Name = "rbSmoothie";
+            this.rbSmoothie.Size = new System.Drawing.Size(125, 32);
+            this.rbSmoothie.TabIndex = 14;
+            this.rbSmoothie.TabStop = true;
+            this.rbSmoothie.Text = "Smoothie";
+            this.rbSmoothie.UseVisualStyleBackColor = true;
+            // 
+            // gbDrinkChoice
+            // 
+            this.gbDrinkChoice.Controls.Add(this.rbJuice);
+            this.gbDrinkChoice.Controls.Add(this.rbSmoothie);
+            this.gbDrinkChoice.Location = new System.Drawing.Point(12, 112);
+            this.gbDrinkChoice.Name = "gbDrinkChoice";
+            this.gbDrinkChoice.Size = new System.Drawing.Size(507, 61);
+            this.gbDrinkChoice.TabIndex = 15;
+            this.gbDrinkChoice.TabStop = false;
+            // 
             // JuiceBarMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1173, 636);
+            this.ClientSize = new System.Drawing.Size(1173, 675);
+            this.Controls.Add(this.gbDrinkChoice);
+            this.Controls.Add(this.lbQuantity);
+            this.Controls.Add(this.tbQuantity);
+            this.Controls.Add(this.gbSize);
+            this.Controls.Add(this.btClear);
             this.Controls.Add(this.btExit);
-            this.Controls.Add(this.btPreview);
+            this.Controls.Add(this.btViewOrderSum);
             this.Controls.Add(this.btCheckout);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.cbCDRem);
@@ -445,12 +478,12 @@
             this.menuStrip1.PerformLayout();
             this.gbJuice.ResumeLayout(false);
             this.gbJuice.PerformLayout();
-            this.gbSizeJuice.ResumeLayout(false);
-            this.gbSizeJuice.PerformLayout();
+            this.gbSize.ResumeLayout(false);
+            this.gbSize.PerformLayout();
             this.gbSmoothies.ResumeLayout(false);
             this.gbSmoothies.PerformLayout();
-            this.gbSizeSmoothies.ResumeLayout(false);
-            this.gbSizeSmoothies.PerformLayout();
+            this.gbDrinkChoice.ResumeLayout(false);
+            this.gbDrinkChoice.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,7 +494,7 @@
         private System.Windows.Forms.Label lblJuiceBarMenu;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem previewOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderSumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToOrderToolStripMenuItem;
@@ -471,28 +504,32 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.GroupBox gbJuice;
-        private System.Windows.Forms.GroupBox gbSizeJuice;
-        private System.Windows.Forms.RadioButton rbTwentyJuice;
-        private System.Windows.Forms.RadioButton rbSixteenJuice;
-        private System.Windows.Forms.RadioButton rbTwelveJuice;
-        private System.Windows.Forms.RadioButton rbFruit;
-        private System.Windows.Forms.RadioButton rbVeggie;
+        private System.Windows.Forms.GroupBox gbSize;
+        private System.Windows.Forms.RadioButton rbTwentyOunce;
+        private System.Windows.Forms.RadioButton rbSixteenOunce;
+        private System.Windows.Forms.RadioButton rbTwelveOunce;
         private System.Windows.Forms.GroupBox gbSmoothies;
         private System.Windows.Forms.RadioButton rbWheatBerry;
         private System.Windows.Forms.RadioButton rbStrawBanana;
         private System.Windows.Forms.RadioButton rbPom;
-        private System.Windows.Forms.GroupBox gbSizeSmoothies;
-        private System.Windows.Forms.RadioButton rbTwentySmooth;
-        private System.Windows.Forms.RadioButton rbSixteenSmooth;
-        private System.Windows.Forms.RadioButton rbTwelveSmooth;
         private System.Windows.Forms.Label lbAdditives;
         private System.Windows.Forms.CheckBox cbVitaPack;
         private System.Windows.Forms.CheckBox cbEngBoost;
         private System.Windows.Forms.CheckBox cbCDRem;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Button btCheckout;
-        private System.Windows.Forms.Button btPreview;
+        private System.Windows.Forms.Button btViewOrderSum;
         private System.Windows.Forms.Button btExit;
+        private System.Windows.Forms.RadioButton rbFruit;
+        private System.Windows.Forms.RadioButton rbVeggie;
+        private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.Label lbQuantity;
+        private System.Windows.Forms.TextBox tbQuantity;
+        private System.Windows.Forms.RadioButton rbJuice;
+        private System.Windows.Forms.RadioButton rbSmoothie;
+        private System.Windows.Forms.GroupBox gbDrinkChoice;
+        private System.Windows.Forms.FontDialog fontDialogMain;
+        private System.Windows.Forms.ColorDialog colorDialogMain;
     }
 }
 

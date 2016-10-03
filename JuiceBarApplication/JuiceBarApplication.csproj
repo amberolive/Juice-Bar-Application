@@ -58,6 +58,7 @@
     <Compile Include="JuiceBarMain.Designer.cs">
       <DependentUpon>JuiceBarMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="JuiceBarAboutBox.resx">
